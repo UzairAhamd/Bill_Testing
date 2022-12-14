@@ -1,0 +1,54 @@
+using MUnit.Framework;
+
+namespace MyTests
+{
+    public class InputTests
+    {
+        [Test]
+        public void TestMultipleInputs()
+        {
+            // Arrange
+            int input1 = 5;
+            int input2 = 10;
+
+            // Act
+
+            // Assert
+            Assert.True(input1 is int);
+            Assert.True(input2 is int);
+        }
+    }
+}
+//////////////////
+
+how to import variable from a project added in unit test dependencies and do data type munit test on that variable 
+/////////////////
+In order to import a variable from a project that has been added as a dependency to your unit test project, you will need to add a reference to the project in your unit test project. This can typically be done by right-clicking on the "References" folder in the Solution Explorer in Visual Studio, and selecting the "Add Reference" option.
+
+Once you have added a reference to the project, you can import the variable by using the using keyword, followed by the namespace of the project where the variable is defined. For example, if the variable is defined in a project named "MyProject" and it is part of the "MyProject.Models" namespace, you can import it like this:
+
+Copy code
+using MyProject.Models;
+After importing the variable, you can access it in your test method by using its name. For example, if the variable is named myVariable, you can access it like this:
+
+Copy code
+int myVariable = 5;
+You can then perform a data type test on the variable using the Assert.IsInstanceOfType method from the NUnit library. This method allows you to check if the variable is of a specific data type, such as int, float, or string. Here is an example of how you can use this method to test the data type of the myVariable variable:
+
+Copy code
+using NUnit.Framework;
+using MyProject.Models;
+
+public class DataTypeTest
+{
+    [Test]
+    public void TestDataType()
+    {
+        int myVariable = 5;
+        Assert.IsInstanceOfType(typeof(int), myVariable);
+    }
+}
+This test will pass if the myVariable variable is of the int data type. You can modify the test to check for other data types, or to check for other conditions.
+
+/////////////////////////////////////////////////////
+
